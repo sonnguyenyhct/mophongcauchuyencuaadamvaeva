@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phát triển ứng dụng nhỏ mô phỏng câu chuyện Adam và Eva</title>
+</head>
+<body>
+    <script>
+        let Apple = function () {
+            this.weightApple = 10;
+
+            this.getWeightApple = function () {
+                return this.weightApple;
+            }
+            this.decrease = function () {
+                this.weightApple -= 1;
+            }
+            this.isEmpty = function (){
+                return this.weightApple === 0;
+            }
+        }
+
+        let Human = function (nameHuman,weightHuman){
+            this.nameHuman = nameHuman;
+            this.gender = false;
+            this.weightHuman = weightHuman;
+
+            this.getNameHuman = function () {
+                return this.nameHuman;
+            }
+            this.setNameHuman = function (nameHuman) {
+                this.nameHuman = nameHuman;
+            }
+            this.isMale = function () {
+                return this.gender;
+            }
+            this.setGender = function (gender) {
+                this.gender = gender;
+            }
+            this.setWeightHuman = function (weightHuman) {
+                this.weightHuman = weightHuman;
+            }
+            this.getWeightHuman = function () {
+                return this.weightHuman;
+            }
+            this.checkApple = function (apple){
+                return apple.isEmpty();
+            }
+            this.eatApple = function(apple){
+                    apple.decrease();
+            }
+            this.sayHuman = function (saySomething) {
+                console.log(saySomething);
+            }
+        }
+
+        let adam = new Human();
+        adam.setNameHuman("Adam");
+        adam.setWeightHuman(65);
+        adam.setGender(true);
+        adam.sayHuman("I love u");
+
+        let eva = new Human();
+        eva.setNameHuman("Eva");
+        eva.setWeightHuman(45);
+        eva.setGender(false);
+
+        let apple = new Apple();
+        while (!apple.isEmpty()){
+            adam.eatApple(apple);
+            document.write("Adam cắn 1 miếng táo, <br> ");
+            document.write("Khối lượng táo còn lại : " + apple.getWeightApple() + "<br>");
+            eva.eatApple(apple);
+            document.write("Eva cắn 1 miếng táo, <br>  ");
+            document.write("Khối lượng táo còn lại : " + apple.getWeightApple() + "<br>");
+        }
+    </script>
+</body>
+</html>
